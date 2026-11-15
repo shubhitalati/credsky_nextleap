@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+:root {
+  --sky-bg: #0b0a08;
+  --sky-ink: #f6efe4;
+  --sky-cream: #f7f1e6;
+  --sky-muted: #b6ab9a;
+  --sky-gold: #e7c48a;
+  --sky-line: rgba(255, 255, 255, 0.1);
+  --sky-panel: #16130f;
+  --sky-card: #1b1712;
+  --background: var(--sky-bg);
+  --foreground: var(--sky-ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit);
+}
+
+body {
+  background: var(--sky-bg);
+  color: var(--sky-ink);
+}
+
+::selection {
+  background: rgba(231, 196, 138, 0.35);
+}
