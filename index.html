@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkyCred: Live Weather</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌤️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">SkyCred</div>
+  <div class="live"><span class="dot"></span>Live weather</div>
+</header>
+<main>
+  <h1>Check the sky's credit score before you step out.</h1>
+  <form id="search" class="search" novalidate>
+    <label for="city" class="sr">City name</label>
+    <input id="city" type="text" placeholder="Search a city" autocomplete="off">
+    <button type="submit">Search</button>
+  </form>
+  <p id="msg" class="msg" role="alert" hidden></p>
+  <div class="chips" id="chips" role="group" aria-label="Popular cities"></div>
+
+  <section class="card" id="card" aria-live="polite">
+    <div class="loading" id="loading" hidden>Fetching the sky's record...</div>
+    <div class="head">
+      <div>
+        <h2 id="place">Mumbai</h2>
+        <p id="region" class="sub"></p>
+        <p id="time" class="sub"></p>
+      </div>
+      <img id="icon" alt="" width="64" height="64">
+    </div>
+    <div class="temp"><span id="temp">--</span><sup>°C</sup></div>
+    <p id="cond" class="cond">--</p>
+    <p class="sub">Feels like <strong id="feels">--</strong></p>
+    <div class="reco">
+      <strong id="recoTitle">--</strong>
+      <span id="recoText"></span>
+    </div>
+    <dl class="stats">
+      <div><dt>Humidity</dt><dd id="hum">--</dd></div>
+      <div><dt>Wind speed</dt><dd id="wind">--</dd></div>
+      <div><dt>UV index</dt><dd id="uv">--</dd></div>
+    </dl>
+  </section>
+
+  <section class="json">
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tabF" aria-selected="true">Formatted JSON</button>
+      <button role="tab" id="tabR" aria-selected="false">Raw JSON</button>
+      <button id="copy" class="copy">Copy</button>
+    </div>
+    <pre id="jsonView">No data yet.</pre>
+  </section>
+</main>
+<footer>Powered by WeatherAPI.com. Not a real credit score, just vibes.</footer>
+<script src="app.js"></script>
+</body>
+</html>
